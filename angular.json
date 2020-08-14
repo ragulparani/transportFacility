@@ -55,6 +55,24 @@
                   "maximumError": "5mb"
                 }
               ]
+            },
+            "local" : {
+              "optimization": false,
+              "outputHashing": "none",
+              "sourceMap": true,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": false,
+              "extractLicenses": false,
+              "vendorChunk": false,
+              "buildOptimizer": false,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
             }
           }
         },
@@ -66,6 +84,9 @@
           "configurations": {
             "production": {
               "browserTarget": "myTransport:build:production"
+            },
+            "local": {
+              "browserTarget": "myTransport:build:local"
             }
           }
         },
