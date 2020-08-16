@@ -1,0 +1,12 @@
+.nav-bar > a{
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 10px;
+    text-transform: uppercase;
+}
+
+.active-nav{
+    padding-bottom: 10px;
+    border-bottom: 2px solid white;
+}

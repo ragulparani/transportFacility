@@ -1,0 +1,12 @@
+@import "~bootstrap/scss/bootstrap";
+@import "global/default_colours";
+@import "global/text";
+
+@include bg-variant('.bg-transport-base',$primary-color);
+@include bg-variant('.bg-body',#EEE);
+
+html,body{
+    padding: 0;
+    margin: 0;
+    font-family: "Muli", 'Helvetica Neue', sans-serif
+}
