@@ -1,0 +1,9 @@
+<div (click)="isVisible = true" class="d-inline-block btn btn-outline-primary">
+    {{time | date : 'MMM/dd h:mm a'}}
+</div>
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Add Vehicle" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+    <div>
+        <nz-date-picker [(ngModel)]="editTime"></nz-date-picker>
+        <nz-time-picker [(ngModel)]="editTime" nzFormat="HH:mm" [nzMinuteStep]="15"></nz-time-picker>
+    </div>
+    </nz-modal>
