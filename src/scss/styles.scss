@@ -1,12 +1,37 @@
 @import "~bootstrap/scss/bootstrap";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import "global/default_colours";
 @import "global/text";
 
 @include bg-variant('.bg-transport-base',$primary-color);
 @include bg-variant('.bg-body',#EEE);
+@include text-emphasis-variant('.text-primary',$primary-color);
+
+
+.btn-primary {
+    @include button-variant($primary-color, $primary-color);
+  }
+  
+  .btn-outline-primary {
+    @include button-outline-variant($primary-color);
+    &:hover {
+      --fa-secondary-opacity: 1;
+    }
+    &:disabled:hover {
+      --fa-secondary-opacity: unset;
+      cursor: not-allowed;
+    }
+  }
 
 html,body{
     padding: 0;
     margin: 0;
+    height: 100%;
+    width:100%;
+    overflow: hidden;
     font-family: "Muli", 'Helvetica Neue', sans-serif
+}
+
+.pointer{
+    cursor: pointer;
 }
