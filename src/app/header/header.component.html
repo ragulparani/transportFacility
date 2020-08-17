@@ -3,5 +3,28 @@
   <div class="nav-bar">
     <a routerLink="home" routerLinkActive="active-nav">Home</a>
     <a routerLink="rides" routerLinkActive="active-nav">Rides</a>
+    <a (click)="drawer = true">Profile</a>
   </div>
 </div>
+<nz-drawer [nzVisible]="drawer" [nzMaskClosable]="true" [nzWidth]="'800'" nzPlacement="right" nzTitle="Profile" (nzOnClose)="drawer = false">
+    <div>
+      <div class="my-3" style="font-size:26px">
+        Hi , <span class="font-weight-bold text-primary">{{login.loggedInUser.name}}</span> 
+      </div>
+      <div class="my-3">
+        Your employee number is {{login.loggedInUser.emp_id}} 
+      </div>
+      <div class="my-3">
+        Home:
+        <nz-select [(ngModel)]="login.loggedInUser.home" (ngModelChange)="profileChange()" class="zorro-select" >
+          <nz-option *ngFor="let place of locations" [nzValue]="place" [nzLabel]="place"></nz-option>
+        </nz-select>
+      </div>
+      <div class="my-3">
+        Work:
+        <nz-select  [(ngModel)]="login.loggedInUser.work" (ngModelChange)="profileChange()" class="zorro-select" >
+          <nz-option *ngFor="let place of locations" [nzValue]="place" [nzLabel]="place"></nz-option>
+        </nz-select>
+      </div>
+    </div>
+    </nz-drawer>
