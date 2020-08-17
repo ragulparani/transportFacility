@@ -1,4 +1,5 @@
-<div>
-  <input type='number' class="form-control" [(ngModel)]="emp_id"/>
-  <button (click)="logIn()"></button>
+<div class="align-items-center d-inline-flex flex-column h-100 justify-content-center w-100">
+  <div class="text-primary font-weight-bold" style="font-size: 30px">Login</div>
+  <input type='number' placeholder="Enter Employee Id" class="form-control w-25 my-4" [(ngModel)]="emp_id"/>
+  <button [disabled]="!emp_id || emp_id.trim().length == 0" class="btn btn-primary form-control w-25 text-white" (click)="logIn()"> Log In</button>
 </div>
