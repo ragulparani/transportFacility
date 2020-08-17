@@ -1,3 +1,18 @@
-<p>
-  rides works!
-</p>
+<div class="h-100">
+    <nz-tabset nzTabPosition="left" [nzType]="'line'" [nzSelectedIndex]="selectedTab">
+        <nz-tab [nzTitle]="'My Rides'">
+            <app-ride-results [template]="myFilter">
+                <ng-template #myFilter let-filterChanged="filterChanged">
+                    <app-my-ride-filter  (filterChanged)="filterChanged($event)"></app-my-ride-filter>
+                </ng-template>
+            </app-ride-results>
+        </nz-tab>
+        <nz-tab [nzTitle]="'Search Rides'">
+            <app-ride-results [template]="searchFilter">
+                <ng-template #searchFilter let-filterChanged="filterChanged">
+                    <app-search-ride-filter #filter (filterChanged)="filterChanged($event)"></app-search-ride-filter>                        
+                </ng-template>
+            </app-ride-results>
+        </nz-tab>
+    </nz-tabset>
+</div>

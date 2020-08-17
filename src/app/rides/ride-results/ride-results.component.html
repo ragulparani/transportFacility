@@ -1,0 +1,10 @@
+<div class=" p-4">
+    <ng-template
+        *ngTemplateOutlet="template;context:{filterChanged : filterChanged.bind(this)}"
+    ></ng-template>
+    <div class=" bg-white p-4 mt-4">
+        <app-ride-row *ngFor="let ride of rides" [ride]="ride">   
+        </app-ride-row>
+        <div *ngIf="rides.length == 0" class="p-4 text-info"> No Rides found</div>
+    </div>
+</div>

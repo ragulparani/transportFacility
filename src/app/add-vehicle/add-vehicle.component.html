@@ -1,0 +1,36 @@
+<div (click)="isVisible = true" class="d-inline-block btn btn-outline-primary">
+    {{vehicleName}}
+</div>
+<nz-modal [(nzVisible)]="isVisible" nzTitle="Add Vehicle" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+    <div>
+        <nz-select class="zorro-select" *ngIf="employee.vehicles && employee.vehicles.length" [(ngModel)]="veh_num" (ngModelChange)="vehicleChange($event)">
+            <nz-option *ngFor="let veh of employee.vehicles" [nzValue]="veh.vehicle_num" [nzLabel]="veh.vehicle_num"></nz-option>
+            <nz-option nzValue="--add--vehicle--" nzLabel="Add Vehicle"></nz-option>
+        </nz-select>
+        <div class="d-flex justify-content-center">
+                <div class="btn mr-3" [ngClass]="{
+                    'btn-primary' : editVehicle.vehicle_type === 'bike',
+                    'btn-outline-primary' : editVehicle.vehicle_type === 'car'
+                }"
+                (click)="editVehicle.vehicle_type = 'bike'">Bike</div>
+                <div class="btn" [ngClass]="{
+                    'btn-primary' : editVehicle.vehicle_type === 'car',
+                    'btn-outline-primary' : editVehicle.vehicle_type === 'bike'
+                }"
+                (click)="editVehicle.vehicle_type = 'car'">Car</div>
+        </div>
+        <div>
+            <input type="text" [(ngModel)]="editVehicle.vehicle_num" placeholder="Reg Num" class="form-control my-3"/>
+            <div class="my-3">
+                Seats : 
+                <nz-input-number
+                      [(ngModel)]="editVehicle.seats"
+                      class="rounded-0"
+                      [nzMax]="editVehicle.vehicle_type == 'bike'? 1 : 5"
+                      [nzMin]="1"
+                      [nzStep]="1"
+                    ></nz-input-number>
+            </div>
+        </div>
+    </div>
+</nz-modal>

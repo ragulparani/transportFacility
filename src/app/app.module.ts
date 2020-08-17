@@ -7,14 +7,15 @@ import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 
-import { NzSelectModule } from 'ng-zorro-antd/select';
+import { AddVehicleComponent } from './add-vehicle/add-vehicle.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    AddVehicleComponent
   ],
   imports: [
     BrowserModule,

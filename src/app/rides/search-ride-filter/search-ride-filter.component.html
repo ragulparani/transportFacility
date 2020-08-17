@@ -1,0 +1,23 @@
+<div *ngIf="visible" class="d-flex bg-white p-4">
+        <app-location [locationDetails]="locationDetails$ | async" [employee]="login.loggedInUser" (locationDetailsChange)="locationChange($event)" class="col-6 "></app-location>
+        <div class="mx-3 d-flex flex-column justify-content-between">
+            <app-select-time [time]="time$ | async" (timeChanged)="timeChange($event)"></app-select-time>
+            <div>
+                Seats : <nz-input-number
+                [ngModel]="seats$ | async"
+                (ngModelChange)="stepChange($event)"
+                class="rounded-0 ml-2"
+                [nzMax]="5"
+                [nzMin]="1"
+                [nzStep]="1"
+                ></nz-input-number>
+            </div>
+        </div>
+        <div class="">
+            <nz-select [ngModel]="vehicle_type$ | async" (ngModelChange)="vehicleTypeChange($event)" class="zorro-select">
+                <nz-option nzValue='both' nzLabel='Both'></nz-option>
+                <nz-option nzValue='car' nzLabel='Car'></nz-option>
+                <nz-option nzValue='bike' nzLabel='Bike'></nz-option>
+            </nz-select>
+        </div>
+</div>

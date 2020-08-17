@@ -1,0 +1,12 @@
+<div>
+        <div class="btn mr-3" [ngClass]="{
+            'btn-primary' : rideType === 'offer',
+            'btn-outline-primary' : rideType === 'take'
+            }"
+            (click)="rideType = 'offer'; rideTypeChange()">Offered By me</div>
+        <div class="btn" [ngClass]="{
+            'btn-primary' : rideType === 'take',
+            'btn-outline-primary' : rideType === 'offer'
+            }"
+            (click)="rideType = 'take'; rideTypeChange()">Taken By Me</div>
+</div>
